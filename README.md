@@ -2,7 +2,7 @@
 ![Version](https://img.shields.io/badge/version-0.0.1-blue)
 ![CodeFactor](https://www.codefactor.io/repository/github/drunkpolishbear/afteic/badge)
 
-AFTEiC is a simple but powerful text editor that currently supports UNIX only. The name stands for "Another Fucking Text Editor in C99".
+AFTEiC is a simple but powerful text editor for UNIX operating systems. The name stands for "Another Fucking Text Editor in C99".
 ## Usage
 For the time being the only way to install AFTEiC is by cloning this repository, which you can do by entering the following command:
 ```

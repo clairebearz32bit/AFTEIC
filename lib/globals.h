@@ -26,7 +26,6 @@ struct displaySettings {
     int rows, cols;
     int n;
     Row row;
-
 } ds;
 
 enum Keys {
