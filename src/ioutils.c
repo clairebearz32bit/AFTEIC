@@ -1,20 +1,19 @@
 #include "../include.h"
 
 void raise(const char *s) {
-    write(STDOUT_FILENO, "\x1b[J", 1);
+    write(STDOUT_FILENO, "\x1b[2J", 1);
     write(STDOUT_FILENO, "\x1b[H", 1);
 
     perror(s);
     exit(1);
-// Program fucked up, print why (hopefully).
-
 }
 
 void exitRaw() {
-    if(tcsetattr(STDIN_FILENO, TCSAFLUSH, &original) == -1) {
+    if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &original) == -1) {
         raise("tcsetattr");
     }
 }
+
 
 void enterRaw() {
     if (tcgetattr(STDIN_FILENO, &original) == -1) {
@@ -35,26 +34,39 @@ void enterRaw() {
 }
 
 int readKey() {
-    int read_code;
+    int nread;
     char c;
-    while ((read_code = read(STDIN_FILENO, &c, 1)) != 1) {
-        if (read_code == -1 && errno != EAGAIN) {
+    while ((nread = read(STDIN_FILENO, &c, 1)) != 1) {
+        if (nread == -1 && errno != EAGAIN) {
             raise("read");
         }
+    }
 
+    if (c == '\x1b') {
         char seq[3];
 
-        if(seq[0] == '[') {
+        if (read(STDIN_FILENO, &seq[0], 1) != 1) {
+            return '\x1b';
+        }
+        if (read(STDIN_FILENO, &seq[1], 1) != 1) {
+            return '\x1b';
+        }
+
+        if (seq[0] == '[') {
             switch (seq[1]) {
                 case 'A': return ARR_U;
                 case 'B': return ARR_D;
                 case 'C': return ARR_R;
                 case 'D': return ARR_L;
-
             }
         }
+
+        return '\x1b';
     }
-    return c;
+
+    else {
+        return c;
+    }
 }
 
 void processKey() {
@@ -65,12 +77,11 @@ void processKey() {
             write(STDOUT_FILENO, "\x1b[2J", 4);
             write(STDOUT_FILENO, "\x1b[H", 3);
             exit(0);
-            break;
 
         case ARR_U:
         case ARR_D:
-        case ARR_L:
         case ARR_R:
+        case ARR_L:
             moveCursor(c);
     }
 }

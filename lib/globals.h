@@ -23,12 +23,12 @@ struct to_write {
 struct displaySettings {
     int x, y;
     int rows, cols;
-    int n;
+    int nrows;
     Row row;
 } ds;
 
 enum Keys {
-    ARR_L,
+    ARR_L = 1000,
     ARR_R,
     ARR_U,
     ARR_D,

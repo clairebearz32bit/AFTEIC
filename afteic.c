@@ -3,7 +3,7 @@
 void Init() {
     ds.x = 0;
     ds.y = 0;
-    ds.rows = 0;
+    ds.nrows = 0;
 
     if(getWinsize(&ds.rows, &ds.cols) == -1) {
         raise("getWinsize");
@@ -13,6 +13,7 @@ void Init() {
 int Start() {
     enterRaw();
     Init();
+    Open("/home/claire/CLionProjects/AFTEiC/dummyfile.txt");
 
     return 0;
 }

@@ -13,5 +13,6 @@
 #include "lib/globals.h"
 #include "lib/ioutils.h"
 #include "lib/display.h"
+#include "lib/editor.h"
 
 #endif
