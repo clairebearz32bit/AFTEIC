@@ -9,20 +9,22 @@ void Open(char *filename) {
     char *line = NULL;
     size_t cap = 0;
     ssize_t len;
-    len = getline(&line, &cap, fp);
 
-    if(len != -1) {
-        while(len > 0 && (line[len - 1] == '\n' || line[len] == '\r')) {
+    while((len = getline(&line, &cap, fp)) != -1) {
+        while(len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r')) {
             len--;
         }
 
-        ds.row.size = len;
-        ds.row.chars = malloc(len + 1);
-        memcpy(ds.row.chars, line, len);
-        ds.row.chars[len] = '\0';
-        ds.nrows = 1;
-
+        appendRow(line, len);
     }
-    free(line);
-    fclose(fp);
+}
+
+void appendRow(char *s, size_t len) {
+    ds.row = realloc(ds.row, sizeof(Row) * (ds.nrows + 1));
+    int at = ds.nrows;
+    ds.row[at].size = len;
+    ds.row[at].chars = malloc(len + 1);
+    memcpy(ds.row[at].chars, s, len);
+    ds.row[at].chars[len] = '\0';
+    ds.nrows++;
 }

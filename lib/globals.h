@@ -24,7 +24,7 @@ struct displaySettings {
     int x, y;
     int rows, cols;
     int nrows;
-    Row row;
+    Row *row;
 } ds;
 
 enum Keys {

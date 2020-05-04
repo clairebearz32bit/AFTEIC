@@ -4,6 +4,7 @@ void Init() {
     ds.x = 0;
     ds.y = 0;
     ds.nrows = 0;
+    ds.row = NULL;
 
     if(getWinsize(&ds.rows, &ds.cols) == -1) {
         raise("getWinsize");
