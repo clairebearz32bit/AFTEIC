@@ -7,7 +7,10 @@
 #include <unistd.h>
 #include <termios.h>
 #include <errno.h>
+<<<<<<< HEAD
 #include <sys/ioctl.h>
+=======
+>>>>>>> 8e849872a531c74918017b821e1594247ff95256
 
 #include "lib/globals.h"
 #include "lib/ioutils.h"

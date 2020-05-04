@@ -1,5 +1,6 @@
 #include "../include.h"
 
+<<<<<<< HEAD
 int getCursorXY(int *rows, int *cols) {
     char buffer[32];
     unsigned int i = 0;
@@ -47,6 +48,8 @@ int getWinsize(int *rows, int *cols) {
     return 0;
 }
 
+=======
+>>>>>>> 8e849872a531c74918017b821e1594247ff95256
 void printRows(struct to_write *tw) {
     for(int i = 0; i < ds.rows; i++) {
         if(i == ds.rows / 3) {
@@ -61,6 +64,7 @@ void printRows(struct to_write *tw) {
                 Append(tw, "~", 1);
                 padding--;
             }
+<<<<<<< HEAD
 
             else {
                 Append(tw, "~", 1);
@@ -73,6 +77,11 @@ void printRows(struct to_write *tw) {
             Append(tw, "\x1b[K", 3);
         }
     }
+=======
+        }
+    }
+
+>>>>>>> 8e849872a531c74918017b821e1594247ff95256
 }
 
 void refreshScreen() {
@@ -81,6 +90,7 @@ void refreshScreen() {
     Append(&tw, SHOW_CURSOR, 6);
     Append(&tw, "\x1b[H", 3);
 
+<<<<<<< HEAD
     printRows(&tw);
 
     char buffer[32];
@@ -92,3 +102,6 @@ void refreshScreen() {
     write(STDOUT_FILENO, tw.b, tw.len);
     Free(&tw);
 }
+=======
+}
+>>>>>>> 8e849872a531c74918017b821e1594247ff95256
