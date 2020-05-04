@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/claire/CLionProjects/AFTEiC/include.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+termios.h
+-
+errno.h
+-
+lib/globals.h
+/home/claire/CLionProjects/AFTEiC/lib/globals.h
+lib/ioutils.h
+/home/claire/CLionProjects/AFTEiC/lib/ioutils.h
+lib/display.h
+/home/claire/CLionProjects/AFTEiC/lib/display.h
+
+/home/claire/CLionProjects/AFTEiC/lib/display.h
+
+/home/claire/CLionProjects/AFTEiC/lib/globals.h
+
+/home/claire/CLionProjects/AFTEiC/lib/ioutils.h
+
+/home/claire/CLionProjects/AFTEiC/src/display.c
+../include.h
+/home/claire/CLionProjects/AFTEiC/include.h
+

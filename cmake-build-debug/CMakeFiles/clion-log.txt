@@ -1,0 +1,4 @@
+/home/claire/Documents/Programming/C_Shit/CLion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/claire/CLionProjects/AFTEiC
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/claire/CLionProjects/AFTEiC/cmake-build-debug
