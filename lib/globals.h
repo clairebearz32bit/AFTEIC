@@ -3,7 +3,6 @@
 
 #define VERSION "0.0.1"
 #define CTRL_KEY(k) ((k) & 0x1f)
-#define SHOW_CURSOR "\x1b[?251"
 #define TW_INIT {NULL, 0}
 
 // Simple macro to check whether or not the CTRL key is pressed.

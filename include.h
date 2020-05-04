@@ -8,6 +8,7 @@
 #include <termios.h>
 #include <errno.h>
 #include <sys/ioctl.h>
+#include <sys/types.h>
 
 #include "lib/globals.h"
 #include "lib/ioutils.h"

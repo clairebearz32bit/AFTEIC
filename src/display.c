@@ -53,24 +53,27 @@ void printRows(struct to_write *tw) {
             char welcome[128];
             int len = snprintf(welcome, sizeof(welcome),
                                "Another Fucking Text Editor in C99 -- version %s", VERSION);
+
             if(len > ds.cols) {
                 len = ds.cols;
             }
+
             int padding = (ds.cols - len) / 2;
             if(padding) {
-                Append(tw, "~", 1);
                 padding--;
-            }
-
-            else {
-                Append(tw, "~", 1);
             }
 
             while(padding--) {
                 Append(tw, " ", 1);
             }
 
+            Append(tw, welcome, len);
             Append(tw, "\x1b[K", 3);
+
+            if(i < ds.rows - 1) {
+                Append(tw, "\r\n", 2);
+            }
+
         }
     }
 }
@@ -78,7 +81,7 @@ void printRows(struct to_write *tw) {
 void refreshScreen() {
     struct to_write tw = TW_INIT;
 
-    Append(&tw, SHOW_CURSOR, 6);
+    Append(&tw, "\x1b[?251", 6);
     Append(&tw, "\x1b[H", 3);
 
     printRows(&tw);
@@ -91,4 +94,28 @@ void refreshScreen() {
 
     write(STDOUT_FILENO, tw.b, tw.len);
     Free(&tw);
+}
+
+void moveCursor(int key) {
+    switch (key) {
+        case ARR_L:
+            if(ds.x != 0) {
+                ds.x--;
+            }
+
+        case ARR_R:
+            if(ds.x != ds.cols - 1) {
+                ds.x++;
+            }
+
+        case ARR_U:
+            if(ds.y != 0) {
+                ds.y--;
+            }
+
+        case ARR_D:
+            if(ds.y != ds.rows - 1) {
+                ds.y++;
+            }
+    }
 }

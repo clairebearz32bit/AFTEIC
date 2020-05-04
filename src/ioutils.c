@@ -41,6 +41,18 @@ int readKey() {
         if (read_code == -1 && errno != EAGAIN) {
             raise("read");
         }
+
+        char seq[3];
+
+        if(seq[0] == '[') {
+            switch (seq[1]) {
+                case 'A': return ARR_U;
+                case 'B': return ARR_D;
+                case 'C': return ARR_R;
+                case 'D': return ARR_L;
+
+            }
+        }
     }
     return c;
 }
@@ -54,6 +66,12 @@ void processKey() {
             write(STDOUT_FILENO, "\x1b[H", 3);
             exit(0);
             break;
+
+        case ARR_U:
+        case ARR_D:
+        case ARR_L:
+        case ARR_R:
+            moveCursor(c);
     }
 }
 

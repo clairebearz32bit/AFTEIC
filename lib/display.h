@@ -5,5 +5,6 @@ int getCursorXY(int *rows, int *cols);
 int getWinsize(int *rows, int *cols);
 void printRows(struct to_write *tw);
 void refreshScreen();
+void moveCursor(int key);
 
 #endif
