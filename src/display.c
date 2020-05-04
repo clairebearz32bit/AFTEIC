@@ -1,5 +1,9 @@
 #include "../include.h"
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 int getCursorXY(int *rows, int *cols) {
     char buffer[32];
     unsigned int i = 0;
@@ -47,6 +51,11 @@ int getWinsize(int *rows, int *cols) {
     return 0;
 }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8e849872a531c74918017b821e1594247ff95256
+>>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 void printRows(struct to_write *tw) {
     for(int i = 0; i < ds.rows; i++) {
         if(i == ds.rows / 3) {
@@ -61,6 +70,10 @@ void printRows(struct to_write *tw) {
                 Append(tw, "~", 1);
                 padding--;
             }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 
             else {
                 Append(tw, "~", 1);
@@ -73,6 +86,14 @@ void printRows(struct to_write *tw) {
             Append(tw, "\x1b[K", 3);
         }
     }
+<<<<<<< HEAD
+=======
+=======
+        }
+    }
+
+>>>>>>> 8e849872a531c74918017b821e1594247ff95256
+>>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 }
 
 void refreshScreen() {
@@ -81,6 +102,10 @@ void refreshScreen() {
     Append(&tw, SHOW_CURSOR, 6);
     Append(&tw, "\x1b[H", 3);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
     printRows(&tw);
 
     char buffer[32];
@@ -92,3 +117,9 @@ void refreshScreen() {
     write(STDOUT_FILENO, tw.b, tw.len);
     Free(&tw);
 }
+<<<<<<< HEAD
+=======
+=======
+}
+>>>>>>> 8e849872a531c74918017b821e1594247ff95256
+>>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
