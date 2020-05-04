@@ -1,4 +1,3 @@
-#include <printf.h>
 #include "../include.h"
 
 void raise(const char *s) {
@@ -38,40 +37,11 @@ void enterRaw() {
 int readKey() {
     int read_code;
     char c;
-
-    while((read_code = read(STDIN_FILENO, &c, 1)) != -1) {
-        if(read_code == -1 && errno != EAGAIN) {
+    while ((read_code = read(STDIN_FILENO, &c, 1)) != 1) {
+        if (read_code == -1 && errno != EAGAIN) {
             raise("read");
         }
-
-        if(c == '\x1b') {
-            char seq[32];
-
-            if(read(STDIN_FILENO, &seq[0], 1) != 1) {
-                return '\x1b';
-            }
-
-            if(read(STDIN_FILENO, &seq[1], 1) != 1) {
-                return '\x1b';
-            }
-
-            if(seq[0] == '[') {
-                if(seq[1] >= '0'&& seq[1] <= '9') {
-                    if(read(STDIN_FILENO, &seq[2], 1) != 1) {
-                        return '\x1b';
-                    }
-
-                    if(seq[2] == '~') {
-                        switch (seq[1]) {
-
-                        }
-                    }
-                }
-            }
-        }
     }
-
-
     return c;
 }
 
@@ -83,6 +53,7 @@ void processKey() {
             write(STDOUT_FILENO, "\x1b[2J", 4);
             write(STDOUT_FILENO, "\x1b[H", 3);
             exit(0);
+            break;
     }
 }
 
