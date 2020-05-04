@@ -18,9 +18,10 @@ int Start() {
 }
 
 int main() {
-    while(Start() == 0) {
-        refreshScreen();
-    }
+    Start();
 
-    return 0;
+    while(1) {
+        refreshScreen();
+        processKey();
+    }
 }
