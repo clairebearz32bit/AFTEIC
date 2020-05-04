@@ -12,49 +12,22 @@ struct termios original, raw;
 
 // Two different variables to differentiate the original terminal settings and raw settings.
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 typedef struct Row {
     int size;
     char *chars;
 } Row;
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 8e849872a531c74918017b821e1594247ff95256
->>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 struct to_write {
     char *b;
     int len;
 };
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-typedef struct Row {
-    int size;
-    char *chars;
-} Row;
-
->>>>>>> 8e849872a531c74918017b821e1594247ff95256
->>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 struct displaySettings {
     int x, y;
     int rows, cols;
     int n;
     Row row;
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 8e849872a531c74918017b821e1594247ff95256
->>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 } ds;
 
 enum Keys {

@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 #include <printf.h>
-=======
-<<<<<<< HEAD
-#include <printf.h>
-=======
->>>>>>> 8e849872a531c74918017b821e1594247ff95256
->>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 #include "../include.h"
 
 void raise(const char *s) {
@@ -46,10 +39,6 @@ int readKey() {
     int read_code;
     char c;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
     while((read_code = read(STDIN_FILENO, &c, 1)) != -1) {
         if(read_code == -1 && errno != EAGAIN) {
             raise("read");
@@ -97,20 +86,6 @@ void processKey() {
     }
 }
 
-<<<<<<< HEAD
-=======
-=======
-    while((read_code = read(STDIN_FILENO, &c, 1)) != 1) {
-        if(read_code == -1 && errno != EAGAIN) {
-            raise("read");
-        }
-    }
-
-    return c;
-}
-
->>>>>>> 8e849872a531c74918017b821e1594247ff95256
->>>>>>> 81da059c803a4129d227ffdc12629bde2762ade0
 void Append(struct to_write *tw, const char *s, int len) {
     char *ptr = realloc(tw->b, tw->len + len);
 
