@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/AFTEiC.dir/afteic.c.o CMakeFiles/AFTEiC.dir/src/ioutils.c.o CMakeFiles/AFTEiC.dir/src/display.c.o  -o AFTEiC 
